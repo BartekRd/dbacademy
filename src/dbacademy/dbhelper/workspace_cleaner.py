@@ -89,7 +89,7 @@ class WorkspaceCleaner:
 
         print(f"| Deleting working directory root \"{self.__da.working_dir_root}\".")
         if Paths.exists(self.__da.working_dir_root):
-            dbgems.dbutils.fs.rm(self.__da.working_dir_root, True)
+            dbgems.dbutils.fs.rm(self.__da.working_dir_root, recurse=True)
 
     def __reset_datasets(self) -> None:
         from dbacademy import dbgems
@@ -97,7 +97,7 @@ class WorkspaceCleaner:
 
         print(f"| Deleting datasets \"{self.__da.paths.datasets}\".")
         if Paths.exists(self.__da.paths.datasets):
-            dbgems.dbutils.fs.rm(self.__da.paths.datasets, True)
+            dbgems.dbutils.fs.rm(self.__da.paths.datasets, recurse=True)
 
     def __reset_archives(self) -> None:
         from dbacademy import dbgems
@@ -105,7 +105,7 @@ class WorkspaceCleaner:
 
         print(f"| Deleting archives \"{self.__da.paths.archives}\".")
         if Paths.exists(self.__da.paths.datasets):
-            dbgems.dbutils.fs.rm(self.__da.paths.archives, True)
+            dbgems.dbutils.fs.rm(self.__da.paths.archives, recurse=True)
 
     @staticmethod
     def __list_catalogs():
